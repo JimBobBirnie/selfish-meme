@@ -6,6 +6,7 @@ namespace SelfishMeme
     {
         private const int winPayOff = 50;
         private const int timeWastingPenalty = 10;
+        private const int losingPenalty = 100;
 
         public void Resolve(Bird firstBird, Bird secondBird)
         {
@@ -41,12 +42,12 @@ namespace SelfishMeme
                 if (random.Next(2) == 0)
                 {
                     firstBird.LifePoints += winPayOff;
-                    secondBird.LifePoints -= 100;
+                    secondBird.LifePoints -= losingPenalty;
                 }
                 else
                 {
                     secondBird.LifePoints += winPayOff;
-                    firstBird.LifePoints -= 100;
+                    firstBird.LifePoints -= losingPenalty;
                 }
             }
         }
