@@ -37,5 +37,9 @@ namespace SelfishMeme
             return birds.Count;
         }
 
+        internal Bird getBirdAt(int index)
+        {
+            return birds[index];
+        }
     }
 }
