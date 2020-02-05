@@ -4,35 +4,43 @@ namespace SelfishMeme
 {
     public class Confrontation
     {
-        private const int winPayOff = 50;
-        private const int timeWastingPenalty = 10;
-        private const int losingPenalty = 100;
+
+        private int WinPayOff { get; set; }
+        private int TimeWastingPenalty { get; set; }
+        private int LosingPenalty { get; set; }
+
+        public Confrontation(int winPayOff, int timeWastingPenalty, int losingPenalty)
+        {
+            WinPayOff = winPayOff;
+            TimeWastingPenalty = timeWastingPenalty;
+            LosingPenalty = losingPenalty;
+        }
 
         public void Resolve(Bird firstBird, Bird secondBird)
         {
             if (firstBird.BirdType == BirdType.Hawk &&
             secondBird.BirdType == BirdType.Dove)
             {
-                firstBird.LifePoints += winPayOff;
+                firstBird.LifePoints += WinPayOff;
             }
             else if (firstBird.BirdType == BirdType.Dove &&
             secondBird.BirdType == BirdType.Hawk)
             {
-                secondBird.LifePoints += winPayOff;
+                secondBird.LifePoints += WinPayOff;
             }
             else if (firstBird.BirdType == BirdType.Dove &&
             secondBird.BirdType == BirdType.Dove)
             {
-                firstBird.LifePoints -= timeWastingPenalty;
-                secondBird.LifePoints -= timeWastingPenalty;
+                firstBird.LifePoints -= TimeWastingPenalty;
+                secondBird.LifePoints -= TimeWastingPenalty;
                 var random = new Random();
                 if (random.Next(2) == 0)
                 {
-                    firstBird.LifePoints += winPayOff;
+                    firstBird.LifePoints += WinPayOff;
                 }
                 else
                 {
-                    secondBird.LifePoints += winPayOff;
+                    secondBird.LifePoints += WinPayOff;
                 }
             }
             else if (firstBird.BirdType == BirdType.Hawk
@@ -41,13 +49,13 @@ namespace SelfishMeme
                 var random = new Random();
                 if (random.Next(2) == 0)
                 {
-                    firstBird.LifePoints += winPayOff;
-                    secondBird.LifePoints -= losingPenalty;
+                    firstBird.LifePoints += WinPayOff;
+                    secondBird.LifePoints -= LosingPenalty;
                 }
                 else
                 {
-                    secondBird.LifePoints += winPayOff;
-                    firstBird.LifePoints -= losingPenalty;
+                    secondBird.LifePoints += WinPayOff;
+                    firstBird.LifePoints -= LosingPenalty;
                 }
             }
         }

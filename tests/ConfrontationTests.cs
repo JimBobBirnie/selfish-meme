@@ -9,7 +9,7 @@ namespace SelfishMeme
         {
             var hawk = new Bird(BirdType.Hawk);
             var dove = new Bird(BirdType.Dove);
-            var confrontation = new Confrontation();
+            var confrontation = new Confrontation(50,10,100);
             confrontation.Resolve(hawk, dove);
             Assert.Equal(50, hawk.LifePoints);
             Assert.Equal(0, dove.LifePoints);
@@ -20,7 +20,7 @@ namespace SelfishMeme
         {
             var hawk = new Bird(BirdType.Hawk);
             var dove = new Bird(BirdType.Dove);
-            var confrontation = new Confrontation();
+            var confrontation = new Confrontation(50,10,100);
             confrontation.Resolve(dove, hawk);
             Assert.Equal(50, hawk.LifePoints);
             Assert.Equal(0, dove.LifePoints);
@@ -31,7 +31,7 @@ namespace SelfishMeme
         {
             var dove1 = new Bird(BirdType.Dove);
             var dove2 = new Bird(BirdType.Dove);
-            var confrontation = new Confrontation();
+            var confrontation = new Confrontation(50,10,100);
             confrontation.Resolve(dove1, dove2);
 
             Assert.Equal(30, dove1.LifePoints + dove2.LifePoints);
@@ -41,9 +41,9 @@ namespace SelfishMeme
         {
             var hawk1 = new Bird(BirdType.Hawk);
             var hawk2 = new Bird(BirdType.Hawk);
-            var confrontation = new Confrontation();
+            var confrontation = new Confrontation(50,10,100);
             confrontation.Resolve(hawk1, hawk2);
-            
+
             Assert.Equal(-50, hawk1.LifePoints + hawk2.LifePoints);
         }
 
