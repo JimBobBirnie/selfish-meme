@@ -2,7 +2,8 @@
 
 namespace SelfishMeme
 {
-    public class ConfrontationResolver
+
+    public class ConfrontationResolver : IConfrontationResolver
     {
 
         private int WinPayOff { get; set; }
