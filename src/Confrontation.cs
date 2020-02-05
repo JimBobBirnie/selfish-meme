@@ -11,6 +11,11 @@ namespace SelfishMeme
             {
                 firstBird.LifePoints += 50;
             }
+            else if (firstBird.BirdType == BirdType.Dove &&
+            secondBird.BirdType == BirdType.Hawk)
+            {
+                secondBird.LifePoints += 50;
+            }
         }
     }
 }
