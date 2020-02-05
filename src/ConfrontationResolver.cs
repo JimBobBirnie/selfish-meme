@@ -1,15 +1,15 @@
-using System;
+﻿using System;
 
 namespace SelfishMeme
 {
-    public class Confrontation
+    public class ConfrontationResolver
     {
 
         private int WinPayOff { get; set; }
         private int TimeWastingPenalty { get; set; }
         private int LosingPenalty { get; set; }
 
-        public Confrontation(int winPayOff, int timeWastingPenalty, int losingPenalty)
+        public ConfrontationResolver(int winPayOff, int timeWastingPenalty, int losingPenalty)
         {
             WinPayOff = winPayOff;
             TimeWastingPenalty = timeWastingPenalty;
