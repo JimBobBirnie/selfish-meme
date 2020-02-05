@@ -5,12 +5,14 @@ namespace SelfishMeme
     public class Bird
     {
      
-        private BirdType birdType;
+        public BirdType BirdType{get; private set;}
 
         public Bird(BirdType birdType)
         {
-            this.birdType = birdType;
+            this.BirdType = birdType;
         }
+
+    
 
         public int LifePoints { get; set; }
     }
