@@ -3,11 +3,12 @@ namespace SelfishMeme
 {
     public class ConfrontationTests
     {
-        [Fact]
-        public void HawkAlwaysBeatsDoveByWalkover()
+        [Theory]
+        [InlineData(BirdType.Hawk, BirdType.Dove)]
+        public void HawkAlwaysBeatsDoveByWalkover(BirdType firstBirdType, BirdType secondBirdType)
         {
-            var hawk = new Bird(BirdType.Hawk);
-            var dove = new Bird(BirdType.Dove);
+            var hawk = new Bird(firstBirdType);
+            var dove = new Bird(secondBirdType);
             var confrontation = new Confrontation();
             confrontation.Resolve(hawk, dove);
             Assert.Equal(50, hawk.LifePoints);
