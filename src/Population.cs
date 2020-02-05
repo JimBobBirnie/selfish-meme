@@ -37,9 +37,20 @@ namespace SelfishMeme
             return birds.Count;
         }
 
-        internal Bird getBirdAt(int index)
+        public Bird getBirdAt(int index)
         {
             return birds[index];
         }
+
+        public void PrintState()
+        {
+           
+            Console.WriteLine("Total Birds in population: {0}", birds.Count);
+            foreach (Bird bird in this.birds.OrderByDescending(b=>b.LifePoints))
+            {
+                Console.WriteLine(bird.ToString());
+            }
+        }
+
     }
 }

@@ -17,6 +17,9 @@ namespace SelfishMeme
 
         public void ResolveConfrontations()
         {
+            Console.WriteLine();
+            Console.WriteLine("Breeding season starting.........");
+            Console.WriteLine();
             var r = new Random();
             for (int i = 0; i < confrontations; i++)
             {
@@ -26,8 +29,20 @@ namespace SelfishMeme
                 {
                     index2 = r.Next(population.getSize());
                 } while (index1 == index2);
-                confrontationResolver.Resolve(population.getBirdAt(index1), population.getBirdAt(index2));
+
+                Bird firstBird = population.getBirdAt(index1);
+                Bird secondBird = population.getBirdAt(index2);
+                Console.WriteLine("Before confrontation:");
+                Console.WriteLine(firstBird);
+                Console.WriteLine(secondBird);
+                confrontationResolver.Resolve(firstBird, secondBird);
+                Console.WriteLine("After confrontation:");
+                Console.WriteLine(firstBird);
+                Console.WriteLine(secondBird);
             }
+            Console.WriteLine();
+            Console.WriteLine("Breeding season ending.........");
+            Console.WriteLine();
         }
     }
 }
