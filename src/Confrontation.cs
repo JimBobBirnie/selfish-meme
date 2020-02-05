@@ -5,6 +5,7 @@ namespace SelfishMeme
     public class Confrontation
     {
         private const int winPayOff = 50;
+        private const int timeWastingPenalty = 10;
 
         public void Resolve(Bird firstBird, Bird secondBird)
         {
@@ -21,8 +22,8 @@ namespace SelfishMeme
             else if (firstBird.BirdType == BirdType.Dove &&
             secondBird.BirdType == BirdType.Dove)
             {
-                firstBird.LifePoints -= 10;
-                secondBird.LifePoints -= 10;
+                firstBird.LifePoints -= timeWastingPenalty;
+                secondBird.LifePoints -= timeWastingPenalty;
                 var random = new Random();
                 if (random.Next(2) == 0)
                 {
