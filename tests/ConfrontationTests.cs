@@ -1,3 +1,4 @@
+using System;
 using Xunit;
 namespace SelfishMeme
 {
@@ -14,7 +15,7 @@ namespace SelfishMeme
             Assert.Equal(0, dove.LifePoints);
         }
 
-         [Fact]
+        [Fact]
         public void DoveAlwaysLosesToHawkByWalkover()
         {
             var hawk = new Bird(BirdType.Hawk);
@@ -24,5 +25,17 @@ namespace SelfishMeme
             Assert.Equal(50, hawk.LifePoints);
             Assert.Equal(0, dove.LifePoints);
         }
+
+        [Fact]
+        public void DoveAgainstDoveWastesTimeButOneWins()
+        {
+            var dove1 = new Bird(BirdType.Dove);
+            var dove2 = new Bird(BirdType.Dove);
+            var confrontation = new Confrontation();
+            confrontation.Resolve(dove1, dove2);
+
+            Assert.Equal(30, dove1.LifePoints + dove2.LifePoints);
+        }
+
     }
 }
