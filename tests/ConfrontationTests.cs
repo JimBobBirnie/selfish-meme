@@ -36,6 +36,16 @@ namespace SelfishMeme
 
             Assert.Equal(30, dove1.LifePoints + dove2.LifePoints);
         }
+        [Fact]
+        public void HawkAgainstHawkHasAWinnerAndALoser()
+        {
+            var hawk1 = new Bird(BirdType.Hawk);
+            var hawk2 = new Bird(BirdType.Hawk);
+            var confrontation = new Confrontation();
+            confrontation.Resolve(hawk1, hawk2);
+            
+            Assert.Equal(-50, hawk1.LifePoints + hawk2.LifePoints);
+        }
 
     }
 }

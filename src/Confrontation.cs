@@ -31,6 +31,21 @@ namespace SelfishMeme
                     secondBird.LifePoints += 50;
                 }
             }
+            else if (firstBird.BirdType == BirdType.Hawk
+            && secondBird.BirdType == BirdType.Hawk)
+            {
+                var random = new Random();
+                if (random.Next(2) == 0)
+                {
+                    firstBird.LifePoints += 50;
+                    secondBird.LifePoints -= 100;
+                }
+                else
+                {
+                    secondBird.LifePoints += 50;
+                    firstBird.LifePoints -= 100;
+                }
+            }
         }
     }
 }
