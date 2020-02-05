@@ -4,14 +4,18 @@ namespace SelfishMeme
 {
     public class ConfrontationTests
     {
+        private const int LosingPenalty = 100;
+        private const int TimeWastingPenalty = 10;
+        private const int WinPayOff = 50;
+
         [Fact]
         public void HawkAlwaysBeatsDoveByWalkover()
         {
             var hawk = new Bird(BirdType.Hawk);
             var dove = new Bird(BirdType.Dove);
-            var confrontation = new Confrontation(50,10,100);
+            var confrontation = new Confrontation(WinPayOff, TimeWastingPenalty, LosingPenalty);
             confrontation.Resolve(hawk, dove);
-            Assert.Equal(50, hawk.LifePoints);
+            Assert.Equal(WinPayOff, hawk.LifePoints);
             Assert.Equal(0, dove.LifePoints);
         }
 
@@ -20,9 +24,9 @@ namespace SelfishMeme
         {
             var hawk = new Bird(BirdType.Hawk);
             var dove = new Bird(BirdType.Dove);
-            var confrontation = new Confrontation(50,10,100);
+            var confrontation = new Confrontation(WinPayOff, TimeWastingPenalty, LosingPenalty);
             confrontation.Resolve(dove, hawk);
-            Assert.Equal(50, hawk.LifePoints);
+            Assert.Equal(WinPayOff, hawk.LifePoints);
             Assert.Equal(0, dove.LifePoints);
         }
 
@@ -31,20 +35,20 @@ namespace SelfishMeme
         {
             var dove1 = new Bird(BirdType.Dove);
             var dove2 = new Bird(BirdType.Dove);
-            var confrontation = new Confrontation(50,10,100);
+            var confrontation = new Confrontation(WinPayOff, TimeWastingPenalty, LosingPenalty);
             confrontation.Resolve(dove1, dove2);
 
-            Assert.Equal(30, dove1.LifePoints + dove2.LifePoints);
+            Assert.Equal(WinPayOff - 2 * TimeWastingPenalty, dove1.LifePoints + dove2.LifePoints);
         }
         [Fact]
         public void HawkAgainstHawkHasAWinnerAndALoser()
         {
             var hawk1 = new Bird(BirdType.Hawk);
             var hawk2 = new Bird(BirdType.Hawk);
-            var confrontation = new Confrontation(50,10,100);
+            var confrontation = new Confrontation(WinPayOff, TimeWastingPenalty, LosingPenalty);
             confrontation.Resolve(hawk1, hawk2);
 
-            Assert.Equal(-50, hawk1.LifePoints + hawk2.LifePoints);
+            Assert.Equal(WinPayOff - LosingPenalty, hawk1.LifePoints + hawk2.LifePoints);
         }
 
     }
