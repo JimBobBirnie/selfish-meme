@@ -4,7 +4,8 @@ using System.Linq;
 
 namespace SelfishMeme
 {
-    public class Population
+
+    public class Population : IPopulation
     {
         private List<Bird> birds;
 
@@ -44,13 +45,28 @@ namespace SelfishMeme
 
         public void PrintState()
         {
-           
+
             Console.WriteLine("Total Birds in population: {0}", birds.Count);
-            foreach (Bird bird in this.birds.OrderByDescending(b=>b.LifePoints))
+            foreach (Bird bird in this.birds.OrderByDescending(b => b.LifePoints))
             {
                 Console.WriteLine(bird.ToString());
             }
         }
 
+        public int getBreedingDoves()
+        {
+            int topHalfCount = birds.Count / 2;
+            return birds.OrderByDescending(b => b.LifePoints)
+                .Take(topHalfCount)
+                .Count(b => b.BirdType == BirdType.Dove);
+        }
+
+        public int getBreedingHawks()
+        {
+            int topHalfCount = birds.Count / 2;
+            return birds.OrderByDescending(b => b.LifePoints)
+                .Take(topHalfCount)
+                .Count(b => b.BirdType == BirdType.Hawk);
+        }
     }
 }

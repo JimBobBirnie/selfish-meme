@@ -9,7 +9,7 @@ namespace SelfishMeme
         static void Main(string[] args)
         {
 
-            const int startDoves = 10;
+            const int startDoves = 100;
             const int startHawks = 10;
             Population population = new Population(startDoves, startHawks);
             const int timeWastingPenalty = 10;

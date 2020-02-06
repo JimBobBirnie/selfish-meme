@@ -4,11 +4,11 @@ namespace SelfishMeme
 {
     public class BreedingSeason
     {
-        private readonly Population population;
+        private readonly IPopulation population;
         private readonly int confrontations;
         private readonly IConfrontationResolver confrontationResolver;
 
-        public BreedingSeason(Population population, int confrontations, IConfrontationResolver confrontationResolver)
+        public BreedingSeason(IPopulation population, int confrontations, IConfrontationResolver confrontationResolver)
         {
             this.population = population;
             this.confrontations = confrontations;
@@ -43,6 +43,11 @@ namespace SelfishMeme
             Console.WriteLine();
             Console.WriteLine("Breeding season ending.........");
             Console.WriteLine();
+        }
+
+        public Population GetNewPopulation()
+        {
+            return new Population(population.getBreedingDoves() * 2, population.getBreedingHawks() * 2);
         }
     }
 }
