@@ -16,7 +16,8 @@ namespace SelfishMeme
             const int losingPenalty = 100;
             ConfrontationResolver confrontationResolver = new ConfrontationResolver(WinPayOff, timeWastingPenalty, losingPenalty);
             const int confrontations = 1000;
-            BreedingSeason breedingSeason = new BreedingSeason(population, confrontations, confrontationResolver);
+            ConsoleLogger logger = new ConsoleLogger();
+            BreedingSeason breedingSeason = new BreedingSeason(population, confrontations, confrontationResolver, logger);
             breedingSeason.ResolveConfrontations();
             population.PrintState();
         }

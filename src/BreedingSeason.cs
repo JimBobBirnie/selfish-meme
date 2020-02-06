@@ -7,19 +7,21 @@ namespace SelfishMeme
         private readonly IPopulation population;
         private readonly int confrontations;
         private readonly IConfrontationResolver confrontationResolver;
+        private readonly IConsole console;
 
-        public BreedingSeason(IPopulation population, int confrontations, IConfrontationResolver confrontationResolver)
+        public BreedingSeason(IPopulation population, int confrontations, IConfrontationResolver confrontationResolver, IConsole console)
         {
             this.population = population;
             this.confrontations = confrontations;
             this.confrontationResolver = confrontationResolver;
+            this.console = console;
         }
 
         public void ResolveConfrontations()
         {
-            Console.WriteLine();
-            Console.WriteLine("Breeding season starting.........");
-            Console.WriteLine();
+            console.WriteLine();
+            console.WriteLine("Breeding season starting.........");
+            console.WriteLine();
             var r = new Random();
             for (int i = 0; i < confrontations; i++)
             {
@@ -32,17 +34,17 @@ namespace SelfishMeme
 
                 Bird firstBird = population.getBirdAt(index1);
                 Bird secondBird = population.getBirdAt(index2);
-                Console.WriteLine("Before confrontation:");
-                Console.WriteLine(firstBird);
-                Console.WriteLine(secondBird);
+                console.WriteLine("Before confrontation:");
+                console.WriteLine(firstBird);
+                console.WriteLine(secondBird);
                 confrontationResolver.Resolve(firstBird, secondBird);
-                Console.WriteLine("After confrontation:");
-                Console.WriteLine(firstBird);
-                Console.WriteLine(secondBird);
+                console.WriteLine("After confrontation:");
+                console.WriteLine(firstBird);
+                console.WriteLine(secondBird);
             }
-            Console.WriteLine();
-            Console.WriteLine("Breeding season ending.........");
-            Console.WriteLine();
+            console.WriteLine();
+            console.WriteLine("Breeding season ending.........");
+            console.WriteLine();
         }
 
         public Population GetNewPopulation()
