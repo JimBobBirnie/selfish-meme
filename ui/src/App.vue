@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-const animationDelay = 1000;
+const animationDelay = 100;
 
 export default Vue.extend({
   async mounted() {

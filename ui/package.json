@@ -4,6 +4,9 @@
   "main": "index.js",
   "private": true,
   "license": "MIT",
+  "scripts": {
+    "start": "parcel ./src/index.html"
+  },
   "devDependencies": {
     "@types/jest": "^25.1.2",
     "@types/plotly.js": "^1.44.27",
