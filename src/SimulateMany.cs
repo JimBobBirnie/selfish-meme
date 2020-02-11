@@ -2,7 +2,7 @@ using System;
 
 namespace SelfishMeme
 {
-    public class SimulateMany
+    public class SimulateMany : ISimulation
     {
         private readonly int times;
         private readonly ISimulation simulation;
