@@ -4,9 +4,9 @@ namespace SelfishMeme
     {
         private readonly int confrontationsPerSeason;
         private readonly ConfrontationResolver confrontationResolver;
-        private readonly ConsoleLogger logger;
+        private readonly IConsole logger;
 
-        public BreedingSeasonFactory(int confrontationsPerSeason, ConfrontationResolver confrontationResolver, ConsoleLogger logger)
+        public BreedingSeasonFactory(int confrontationsPerSeason, ConfrontationResolver confrontationResolver, IConsole logger)
         {
             this.confrontationsPerSeason = confrontationsPerSeason;
             this.confrontationResolver = confrontationResolver;

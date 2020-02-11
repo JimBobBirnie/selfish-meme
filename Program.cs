@@ -19,7 +19,7 @@ namespace SelfishMeme
                 return;
             }
             string outputFilePath = args[0];
-            ConsoleLogger logger = new ConsoleLogger();
+            IConsole logger = new DummyLogger();
             ConfrontationResolver confrontationResolver = new ConfrontationResolver(WinPayOff, timeWastingPenalty, losingPenalty);
             Population initialPopulation = new Population(startDoves, startHawks);
             using (TextWriter outputStream = new StreamWriter(File.Open(outputFilePath, FileMode.Create, FileAccess.Write, FileShare.Read)))
