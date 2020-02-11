@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace SelfishMeme
 {
     public interface IPopulation
@@ -9,6 +11,6 @@ namespace SelfishMeme
         int getHawks();
         int getSize();
         void PrintState();
-        void WriteOutput(IPopulationOutputStream outputStream);
+        void WriteOutput(TextWriter outputStream);
     }
 }

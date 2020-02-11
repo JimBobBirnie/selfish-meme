@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace SelfishMeme
 {
@@ -15,7 +16,7 @@ namespace SelfishMeme
             ConsoleLogger logger = new ConsoleLogger();
             ConfrontationResolver confrontationResolver = new ConfrontationResolver(WinPayOff, timeWastingPenalty, losingPenalty);
             Population initialPopulation = new Population(startDoves, startHawks);
-            IPopulationOutputStream outputStream = null;
+            TextWriter outputStream = null;
             var simulation = new Simulation(initialPopulation, confrontationsPerSeason, new BreedingSeasonFactory(), confrontationResolver, logger, outputStream);
             simulation.Run();
         }

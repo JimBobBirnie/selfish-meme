@@ -1,5 +1,6 @@
 using Xunit;
 using Moq;
+using System.IO;
 
 namespace SelfishMeme
 {
@@ -13,7 +14,7 @@ namespace SelfishMeme
             var consoleMock = new Mock<IConsole>();
             var confrontationsPerSeason = 456723;
             var breedingSeasonFactoryMock = new Mock<IBreedingSeasonFactory>();
-            Mock<IPopulationOutputStream> outputStreamMock = new Mock<IPopulationOutputStream>();
+            Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
                                         , confrontationsPerSeason
                                         , breedingSeasonFactoryMock.Object
@@ -39,7 +40,7 @@ namespace SelfishMeme
             var consoleMock = new Mock<IConsole>();
             var confrontationsPerSeason = 456723;
             var breedingSeasonFactoryMock = new Mock<IBreedingSeasonFactory>();
-            Mock<IPopulationOutputStream> outputStreamMock = new Mock<IPopulationOutputStream>();
+            Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
                                         , confrontationsPerSeason
                                         , breedingSeasonFactoryMock.Object
@@ -68,7 +69,7 @@ namespace SelfishMeme
             var consoleMock = new Mock<IConsole>();
             var confrontationsPerSeason = 456723;
             var breedingSeasonFactoryMock = new Mock<IBreedingSeasonFactory>();
-            Mock<IPopulationOutputStream> outputStreamMock = new Mock<IPopulationOutputStream>();
+            Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
                                         , confrontationsPerSeason
                                         , breedingSeasonFactoryMock.Object
@@ -96,7 +97,7 @@ namespace SelfishMeme
             var consoleMock = new Mock<IConsole>();
             var confrontationsPerSeason = 456723;
             var breedingSeasonFactoryMock = new Mock<IBreedingSeasonFactory>();
-            Mock<IPopulationOutputStream> outputStreamMock = new Mock<IPopulationOutputStream>();
+            Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
                                         , confrontationsPerSeason
                                         , breedingSeasonFactoryMock.Object

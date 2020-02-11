@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace SelfishMeme
 {
     public class Simulation
@@ -6,7 +8,7 @@ namespace SelfishMeme
         private readonly int confrontationsPerSeason;
         private readonly IConfrontationResolver confrontationResolver;
         private readonly IConsole console;
-        private readonly IPopulationOutputStream outputStream;
+        private readonly TextWriter outputStream;
         private IBreedingSeasonFactory breedingSeasonFactory;
 
         public Simulation(Population initialPopulation
@@ -14,7 +16,7 @@ namespace SelfishMeme
                             , IBreedingSeasonFactory breedingSeasonFactory
                             , IConfrontationResolver confrontationResolver
                             , IConsole console
-                            , IPopulationOutputStream outputStream)
+                            , TextWriter outputStream)
         {
             this.initialPopulation = initialPopulation;
             this.confrontationsPerSeason = confrontationsPerSeason;
