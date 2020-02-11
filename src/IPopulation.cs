@@ -9,5 +9,6 @@ namespace SelfishMeme
         int getHawks();
         int getSize();
         void PrintState();
+        void WriteOutput(IPopulationOutputStream outputStream);
     }
 }

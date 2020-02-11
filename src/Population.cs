@@ -70,5 +70,10 @@ namespace SelfishMeme
                 .Take(topHalfCount)
                 .Count(b => b.BirdType == BirdType.Hawk);
         }
+
+        public void WriteOutput(IPopulationOutputStream outputStream)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

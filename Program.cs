@@ -15,7 +15,8 @@ namespace SelfishMeme
             ConsoleLogger logger = new ConsoleLogger();
             ConfrontationResolver confrontationResolver = new ConfrontationResolver(WinPayOff, timeWastingPenalty, losingPenalty);
             Population initialPopulation = new Population(startDoves, startHawks);
-            var simulation = new Simulation(initialPopulation, confrontationsPerSeason, new BreedingSeasonFactory(), confrontationResolver, logger);
+            IPopulationOutputStream outputStream = null;
+            var simulation = new Simulation(initialPopulation, confrontationsPerSeason, new BreedingSeasonFactory(), confrontationResolver, logger, outputStream);
             simulation.Run();
         }
     }

@@ -6,22 +6,22 @@ namespace SelfishMeme
         private readonly int confrontationsPerSeason;
         private readonly IConfrontationResolver confrontationResolver;
         private readonly IConsole console;
+        private readonly IPopulationOutputStream outputStream;
         private IBreedingSeasonFactory breedingSeasonFactory;
-
-
 
         public Simulation(Population initialPopulation
                             , int confrontationsPerSeason
                             , IBreedingSeasonFactory breedingSeasonFactory
                             , IConfrontationResolver confrontationResolver
-                            , IConsole console)
+                            , IConsole console
+                            , IPopulationOutputStream outputStream)
         {
             this.initialPopulation = initialPopulation;
             this.confrontationsPerSeason = confrontationsPerSeason;
             this.breedingSeasonFactory = breedingSeasonFactory;
             this.confrontationResolver = confrontationResolver;
             this.console = console;
-
+            this.outputStream = outputStream;
         }
 
         public void Run()
@@ -31,7 +31,8 @@ namespace SelfishMeme
                     , confrontationResolver
                     , console);
             breedingSeason.ResolveConfrontations();
-            breedingSeason.GetNewPopulation();
+            var population = breedingSeason.GetNewPopulation();
+            population.WriteOutput(outputStream);
         }
 
     }
