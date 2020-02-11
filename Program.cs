@@ -24,7 +24,7 @@ namespace SelfishMeme
             Population initialPopulation = new Population(startDoves, startHawks);
             using (TextWriter outputStream = new StreamWriter(File.Open(outputFilePath, FileMode.Create, FileAccess.Write, FileShare.Read)))
             {
-                var simulation = new Simulation(initialPopulation, confrontationsPerSeason, new BreedingSeasonFactory(), confrontationResolver, logger, outputStream);
+                var simulation = new SimulateMany(100, new Simulation(initialPopulation, confrontationsPerSeason, new BreedingSeasonFactory(), confrontationResolver, logger, outputStream));
                 simulation.Run();
             }
         }
