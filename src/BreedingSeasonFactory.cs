@@ -12,7 +12,7 @@ namespace SelfishMeme
             throw new System.NotImplementedException();
         }
 
-        public BreedingSeason Build(IPopulation population
+        public IBreedingSeason Build(IPopulation population
                                     , int confrontations
                                     , IConfrontationResolver confrontationResolver
                                     , IConsole console)

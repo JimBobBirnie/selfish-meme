@@ -7,7 +7,7 @@ namespace SelfishMeme
         IConfrontationResolver ConfrontationResolver { get; set; }
         IConsole Console { get; set; }
         BreedingSeason Build();
-        BreedingSeason Build(IPopulation population
+        IBreedingSeason Build(IPopulation population
                             , int confrontations
                             , IConfrontationResolver confrontationResolver
                             , IConsole console);

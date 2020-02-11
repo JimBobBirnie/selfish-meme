@@ -26,10 +26,11 @@ namespace SelfishMeme
 
         public void Run()
         {
-            breedingSeasonFactory.Build(initialPopulation
+            var breedingSeason = breedingSeasonFactory.Build(initialPopulation
                     , confrontationsPerSeason
                     , confrontationResolver
                     , console);
+            breedingSeason.ResolveConfrontations();
         }
 
     }
