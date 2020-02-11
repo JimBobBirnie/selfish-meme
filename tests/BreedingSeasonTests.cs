@@ -30,8 +30,8 @@ namespace SelfishMeme
             var mock = new Mock<IPopulation>();
             mock.Setup(p => p.getBreedingDoves()).Returns(breedingDoves);
             mock.Setup(p => p.getBreedingHawks()).Returns(breedingHawks);
-            BreedingSeason breedingSeason = new BreedingSeason(mock.Object, 0, null, new Mock<IConsole>().Object);
-            Population newPopulation = breedingSeason.GetNewPopulation();
+            var breedingSeason = new BreedingSeason(mock.Object, 0, null, new Mock<IConsole>().Object);
+            var newPopulation = breedingSeason.GetNewPopulation();
             Assert.Equal(breedingDoves * 2, newPopulation.getDoves());
             Assert.Equal(breedingHawks * 2, newPopulation.getHawks());
         }

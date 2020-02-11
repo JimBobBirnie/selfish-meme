@@ -1,5 +1,8 @@
-  namespace SelfishMeme {
-      public interface IBreedingSeason {
-void ResolveConfrontations () ;
+namespace SelfishMeme
+{
+    public interface IBreedingSeason
+    {
+        void ResolveConfrontations();
+        IPopulation GetNewPopulation();
       }
-  }
+}

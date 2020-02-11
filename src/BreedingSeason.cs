@@ -45,7 +45,7 @@ namespace SelfishMeme
             console.WriteLine ();
         }
 
-        public Population GetNewPopulation () {
+        public IPopulation GetNewPopulation () {
             return new Population (population.getBreedingDoves () * 2, population.getBreedingHawks () * 2);
         }
     }

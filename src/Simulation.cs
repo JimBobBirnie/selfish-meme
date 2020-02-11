@@ -31,6 +31,7 @@ namespace SelfishMeme
                     , confrontationResolver
                     , console);
             breedingSeason.ResolveConfrontations();
+            breedingSeason.GetNewPopulation();
         }
 
     }
