@@ -2,22 +2,20 @@ namespace SelfishMeme
 {
     public class BreedingSeasonFactory : IBreedingSeasonFactory
     {
-        public IPopulation Population { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public int Confrontations { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public IConfrontationResolver ConfrontationResolver { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-        public IConsole Console { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        private readonly int confrontationsPerSeason;
+        private readonly ConfrontationResolver confrontationResolver;
+        private readonly ConsoleLogger logger;
 
-        public BreedingSeason Build()
+        public BreedingSeasonFactory(int confrontationsPerSeason, ConfrontationResolver confrontationResolver, ConsoleLogger logger)
         {
-            throw new System.NotImplementedException();
+            this.confrontationsPerSeason = confrontationsPerSeason;
+            this.confrontationResolver = confrontationResolver;
+            this.logger = logger;
         }
 
-        public IBreedingSeason Build(IPopulation population
-                                    , int confrontations
-                                    , IConfrontationResolver confrontationResolver
-                                    , IConsole console)
+        public IBreedingSeason Build(IPopulation population)
         {
-            return new BreedingSeason(population, confrontations, confrontationResolver, console);
+            return new BreedingSeason(population, confrontationsPerSeason, confrontationResolver, logger);
         }
     }
 }

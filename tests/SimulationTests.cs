@@ -10,22 +10,13 @@ namespace SelfishMeme
         public void RunSimulationCreatesABreedingSeasonFromInitialPopulation()
         {
             var initialPopulation = new Population(0, 0);
-            var confrontationResolverMock = new Mock<IConfrontationResolver>();
-            var consoleMock = new Mock<IConsole>();
-            var confrontationsPerSeason = 456723;
             var breedingSeasonFactoryMock = new Mock<IBreedingSeasonFactory>();
             Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
-                                        , confrontationsPerSeason
                                         , breedingSeasonFactoryMock.Object
-                                        , confrontationResolverMock.Object
-                                        , consoleMock.Object
                                         , outputStreamMock.Object);
             Mock<IBreedingSeason> breedingSeasonMock = new Mock<IBreedingSeason>();
-            breedingSeasonFactoryMock.Setup(s => s.Build(initialPopulation
-                            , confrontationsPerSeason
-                            , confrontationResolverMock.Object
-                            , consoleMock.Object))
+            breedingSeasonFactoryMock.Setup(s => s.Build(initialPopulation))
                             .Returns(breedingSeasonMock.Object);
             Mock<IPopulation> populationMock = new Mock<IPopulation>();
             breedingSeasonMock.Setup(bs => bs.GetNewPopulation()).Returns(populationMock.Object);
@@ -36,23 +27,14 @@ namespace SelfishMeme
         public void ResolveSimulationResolvesConfrontations()
         {
             var initialPopulation = new Population(0, 0);
-            var confrontationResolverMock = new Mock<IConfrontationResolver>();
-            var consoleMock = new Mock<IConsole>();
-            var confrontationsPerSeason = 456723;
             var breedingSeasonFactoryMock = new Mock<IBreedingSeasonFactory>();
             Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
-                                        , confrontationsPerSeason
                                         , breedingSeasonFactoryMock.Object
-                                        , confrontationResolverMock.Object
-                                        , consoleMock.Object
                                         , outputStreamMock.Object);
             var breedingSeasonMock = new Mock<IBreedingSeason>();
             var breedingSeason = breedingSeasonMock.Object;
-            breedingSeasonFactoryMock.Setup(s => s.Build(initialPopulation
-                            , confrontationsPerSeason
-                            , confrontationResolverMock.Object
-                            , consoleMock.Object))
+            breedingSeasonFactoryMock.Setup(s => s.Build(initialPopulation))
                             .Returns(breedingSeason);
             breedingSeasonMock.Setup(bs => bs.ResolveConfrontations());
             Mock<IPopulation> populationMock = new Mock<IPopulation>();
@@ -65,23 +47,14 @@ namespace SelfishMeme
         public void ResolveSimulationCreatesNextGeneration()
         {
             var initialPopulation = new Population(0, 0);
-            var confrontationResolverMock = new Mock<IConfrontationResolver>();
-            var consoleMock = new Mock<IConsole>();
-            var confrontationsPerSeason = 456723;
             var breedingSeasonFactoryMock = new Mock<IBreedingSeasonFactory>();
             Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
-                                        , confrontationsPerSeason
                                         , breedingSeasonFactoryMock.Object
-                                        , confrontationResolverMock.Object
-                                        , consoleMock.Object
                                         , outputStreamMock.Object);
             var breedingSeasonMock = new Mock<IBreedingSeason>();
             var breedingSeason = breedingSeasonMock.Object;
-            breedingSeasonFactoryMock.Setup(s => s.Build(initialPopulation
-                            , confrontationsPerSeason
-                            , confrontationResolverMock.Object
-                            , consoleMock.Object))
+            breedingSeasonFactoryMock.Setup(s => s.Build(initialPopulation))
                             .Returns(breedingSeason);
             Mock<IPopulation> populationMock = new Mock<IPopulation>();
             breedingSeasonMock.Setup(bs => bs.GetNewPopulation()).Returns(populationMock.Object);
@@ -93,23 +66,14 @@ namespace SelfishMeme
         public void SimulationWritesNextGenerationToOutputStream()
         {
             var initialPopulation = new Population(0, 0);
-            var confrontationResolverMock = new Mock<IConfrontationResolver>();
-            var consoleMock = new Mock<IConsole>();
-            var confrontationsPerSeason = 456723;
             var breedingSeasonFactoryMock = new Mock<IBreedingSeasonFactory>();
             Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
-                                        , confrontationsPerSeason
                                         , breedingSeasonFactoryMock.Object
-                                        , confrontationResolverMock.Object
-                                        , consoleMock.Object
                                         , outputStreamMock.Object);
             var breedingSeasonMock = new Mock<IBreedingSeason>();
             var breedingSeason = breedingSeasonMock.Object;
-            breedingSeasonFactoryMock.Setup(s => s.Build(initialPopulation
-                            , confrontationsPerSeason
-                            , confrontationResolverMock.Object
-                            , consoleMock.Object))
+            breedingSeasonFactoryMock.Setup(s => s.Build(initialPopulation))
                             .Returns(breedingSeason);
             Mock<IPopulation> populationMock = new Mock<IPopulation>();
             breedingSeasonMock.Setup(bs => bs.GetNewPopulation()).Returns(populationMock.Object);
