@@ -42,7 +42,7 @@ namespace SelfishMeme
         public void WriteOutputShouldWriteCountOfDovesAndHawksToStream()
         {
             var writerMock = new Mock<TextWriter>();
-            writerMock.Setup(w => w.WriteLine("{\"doves\":70,\"hawkes\":30}"));
+            writerMock.Setup(w => w.WriteLine("{\"doves\":70,\"hawks\":30}"));
 
             var population = new Population(70, 30);
             population.WriteOutput(writerMock.Object);

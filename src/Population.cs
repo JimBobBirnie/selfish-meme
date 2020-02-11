@@ -79,7 +79,7 @@ namespace SelfishMeme
             var jsonOutput = JsonConvert.SerializeObject(new
             {
                 doves = this.getDoves(),
-                hawkes = this.getHawks()
+                hawks = this.getHawks()
             });
 
             outputStream.WriteLine(jsonOutput);
