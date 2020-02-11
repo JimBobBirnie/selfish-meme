@@ -13,12 +13,20 @@ namespace SelfishMeme
         const int confrontationsPerSeason = 1000;
         static void Main(string[] args)
         {
+            if (args.Length < 1)
+            {
+                Console.WriteLine("Need an output file path for writing population data");
+                return;
+            }
+            string outputFilePath = args[0];
             ConsoleLogger logger = new ConsoleLogger();
             ConfrontationResolver confrontationResolver = new ConfrontationResolver(WinPayOff, timeWastingPenalty, losingPenalty);
             Population initialPopulation = new Population(startDoves, startHawks);
-            TextWriter outputStream = null;
-            var simulation = new Simulation(initialPopulation, confrontationsPerSeason, new BreedingSeasonFactory(), confrontationResolver, logger, outputStream);
-            simulation.Run();
+            using (TextWriter outputStream = new StreamWriter(File.Open(outputFilePath, FileMode.Create, FileAccess.Write, FileShare.Read)))
+            {
+                var simulation = new Simulation(initialPopulation, confrontationsPerSeason, new BreedingSeasonFactory(), confrontationResolver, logger, outputStream);
+                simulation.Run();
+            }
         }
     }
 }
