@@ -48,5 +48,14 @@ namespace SelfishMeme
             population.WriteOutput(writerMock.Object);
             writerMock.VerifyAll();
         }
+
+        [Fact]
+        public void WriteOutputShouldFlushStreamEachTime()
+        {
+            var writerMock = new Mock<TextWriter>();
+            var population = new Population(70, 30);
+            population.WriteOutput(writerMock.Object);
+            writerMock.Verify(w => w.Flush());
+        }
     }
 }

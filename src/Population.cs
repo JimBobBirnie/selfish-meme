@@ -83,6 +83,7 @@ namespace SelfishMeme
             });
 
             outputStream.WriteLine(jsonOutput);
+            outputStream.Flush();
         }
     }
 }
