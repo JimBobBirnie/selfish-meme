@@ -18,6 +18,7 @@ namespace SelfishMeme
             Assert.Equal(WinPayOff, hawk.LifePoints);
             Assert.Equal(0, dove.LifePoints);
         }
+     
 
         [Fact]
         public void DoveAlwaysLosesToHawkByWalkover()
@@ -50,6 +51,5 @@ namespace SelfishMeme
 
             Assert.Equal(WinPayOff - LosingPenalty, hawk1.LifePoints + hawk2.LifePoints);
         }
-
     }
 }

@@ -51,6 +51,8 @@ namespace SelfishMeme
             {
                 Console.WriteLine(bird.ToString());
             }
+            Console.WriteLine("Breeding hawks: {0}", getBreedingHawks());
+            Console.WriteLine("Breeding doves: {0}", getBreedingDoves());
         }
 
         public int getBreedingDoves()
