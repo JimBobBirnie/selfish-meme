@@ -9,18 +9,14 @@ namespace SelfishMeme
         private const int losingPenalty = 100;
         private const int startHawks = 100;
         private const int startDoves = 15;
+        const int confrontationsPerSeason = 1000;
         static void Main(string[] args)
         {
-
-
-            Population population = new Population(startDoves, startHawks);
-
-            ConfrontationResolver confrontationResolver = new ConfrontationResolver(WinPayOff, timeWastingPenalty, losingPenalty);
-            const int confrontations = 1000;
             ConsoleLogger logger = new ConsoleLogger();
-            BreedingSeason breedingSeason = new BreedingSeason(population, confrontations, confrontationResolver, logger);
-            breedingSeason.ResolveConfrontations();
-            population.PrintState();
+            ConfrontationResolver confrontationResolver = new ConfrontationResolver(WinPayOff, timeWastingPenalty, losingPenalty);
+            Population initialPopulation = new Population(startDoves, startHawks);
+            var simulation = new Simulation(initialPopulation, confrontationsPerSeason, new BreedingSeasonFactory(), confrontationResolver, logger);
+            simulation.Run();
         }
     }
 }
