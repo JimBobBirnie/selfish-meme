@@ -65,6 +65,9 @@ interface Population {
 async function getData(): Promise<Population[]> {
   const response = await fetch('output.json');
   const body = await response.text();
-  return body.split('\n').map(jsonLine => JSON.parse(jsonLine));
+  return body
+    .split('\n')
+    .filter(jsonLine => jsonLine.length > 0)
+    .map(jsonLine => JSON.parse(jsonLine));
 }
 </script>
