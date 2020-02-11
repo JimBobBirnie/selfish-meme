@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace SelfishMeme
 {
@@ -71,9 +74,15 @@ namespace SelfishMeme
                 .Count(b => b.BirdType == BirdType.Hawk);
         }
 
-        public void WriteOutput(IPopulationOutputStream outputStream)
+        public void WriteOutput(TextWriter outputStream)
         {
-            throw new NotImplementedException();
+            var jsonOutput = JsonConvert.SerializeObject(new
+            {
+                doves = this.getDoves(),
+                hawkes = this.getHawks()
+            });
+
+            outputStream.WriteLine(jsonOutput);
         }
     }
 }
