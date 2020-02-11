@@ -2,7 +2,7 @@ using System.IO;
 
 namespace SelfishMeme
 {
-    public class Simulation
+    public class Simulation : ISimulation
     {
         private readonly IPopulation initialPopulation;
         private readonly int confrontationsPerSeason;
