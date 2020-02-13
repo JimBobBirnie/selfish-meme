@@ -12,14 +12,11 @@ namespace SelfishMeme
         private const int startDoves = 15;
         private const int confrontationsPerSeason = 1000;
         private const int breedingSeasons = 100;
+        private const string defaultOutputFilePath = @"ui/public/output.json";
+
         static void Main(string[] args)
         {
-            if (args.Length < 1)
-            {
-                Console.WriteLine("Need an output file path for writing population data");
-                return;
-            }
-            string outputFilePath = args[0];
+            var outputFilePath = args.Length > 0 ? args[0] : defaultOutputFilePath;
             IConsole logger = new ConsoleLogger();
             ConfrontationResolver confrontationResolver = new ConfrontationResolver(WinPayOff, timeWastingPenalty, losingPenalty);
             Population initialPopulation = new Population(startDoves, startHawks);
