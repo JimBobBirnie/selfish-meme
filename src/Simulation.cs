@@ -6,14 +6,17 @@ namespace SelfishMeme
     {
         private readonly TextWriter outputStream;
         private readonly IBreedingSeasonFactory breedingSeasonFactory;
+        private readonly int breedingSeasons;
         private IPopulation currentPopulation;
 
         public Simulation(Population initialPopulation
                             , IBreedingSeasonFactory breedingSeasonFactory
+                            , int breedingSeasons
                             , TextWriter outputStream)
         {
             this.currentPopulation = initialPopulation;
             this.breedingSeasonFactory = breedingSeasonFactory;
+            this.breedingSeasons = breedingSeasons;
             this.outputStream = outputStream;
         }
 

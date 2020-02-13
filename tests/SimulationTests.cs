@@ -14,6 +14,7 @@ namespace SelfishMeme
             Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
                                         , breedingSeasonFactoryMock.Object
+                                        , 1
                                         , outputStreamMock.Object);
             Mock<IBreedingSeason> breedingSeasonMock = new Mock<IBreedingSeason>();
             breedingSeasonFactoryMock.Setup(s => s.Build(initialPopulation))
@@ -31,6 +32,7 @@ namespace SelfishMeme
             Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
                                         , breedingSeasonFactoryMock.Object
+                                        , 1
                                         , outputStreamMock.Object);
             var breedingSeasonMock = new Mock<IBreedingSeason>();
             var breedingSeason = breedingSeasonMock.Object;
@@ -51,6 +53,7 @@ namespace SelfishMeme
             Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
                                         , breedingSeasonFactoryMock.Object
+                                        , 1
                                         , outputStreamMock.Object);
             var breedingSeasonMock = new Mock<IBreedingSeason>();
             var breedingSeason = breedingSeasonMock.Object;
@@ -70,6 +73,7 @@ namespace SelfishMeme
             Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
                                         , breedingSeasonFactoryMock.Object
+                                        , 1
                                         , outputStreamMock.Object);
             var breedingSeasonMock = new Mock<IBreedingSeason>();
             var breedingSeason = breedingSeasonMock.Object;
@@ -90,6 +94,7 @@ namespace SelfishMeme
             Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
             var simulation = new Simulation(initialPopulation
                                         , breedingSeasonFactoryMock.Object
+                                        , 1
                                         , outputStreamMock.Object);
             var breedingSeasonMock = new Mock<IBreedingSeason>();
             Mock<IPopulation> nextPopulationMock = new Mock<IPopulation>();
