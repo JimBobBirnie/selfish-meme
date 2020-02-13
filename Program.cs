@@ -11,6 +11,7 @@ namespace SelfishMeme
         private const int startHawks = 100;
         private const int startDoves = 15;
         private const int confrontationsPerSeason = 1000;
+        private const int breedingSeasons = 100;
         static void Main(string[] args)
         {
             if (args.Length < 1)
@@ -24,14 +25,12 @@ namespace SelfishMeme
             Population initialPopulation = new Population(startDoves, startHawks);
             using (TextWriter outputStream = new StreamWriter(File.Open(outputFilePath, FileMode.Create, FileAccess.Write, FileShare.Read)))
             {
-                var simulation = new SimulateMany(
-                        100
-                        , new Simulation(initialPopulation
+                var simulation = new Simulation(initialPopulation
                             , new BreedingSeasonFactory(confrontationsPerSeason
                                 , confrontationResolver
                                 , logger)
-                            ,1 
-                            ,outputStream));
+                            , breedingSeasons
+                            ,outputStream);
                 simulation.Run();
             }
         }
