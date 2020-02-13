@@ -24,7 +24,7 @@ namespace SelfishMeme
             breedingSeasonFactoryMock.VerifyAll();
         }
         [Fact]
-        public void ResolveSimulationResolvesConfrontations()
+        public void RunSimulationResolvesConfrontations()
         {
             var initialPopulation = new Population(0, 0);
             var breedingSeasonFactoryMock = new Mock<IBreedingSeasonFactory>();
