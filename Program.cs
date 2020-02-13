@@ -12,7 +12,7 @@ namespace SelfishMeme
         private const int startDoves = 15;
         private const int confrontationsPerSeason = 1000;
         private const int breedingSeasons = 100;
-        private const string defaultOutputFilePath = @"ui/public/output.json";
+        private const string defaultOutputFilePath = @"ui/dist/output.json";
 
         static void Main(string[] args)
         {
