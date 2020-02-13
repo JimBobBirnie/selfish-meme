@@ -30,7 +30,7 @@ namespace SelfishMeme
                                 , confrontationResolver
                                 , logger)
                             , breedingSeasons
-                            ,outputStream);
+                            , outputStream);
                 simulation.Run();
             }
         }
