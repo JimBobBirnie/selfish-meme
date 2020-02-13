@@ -6,19 +6,34 @@
 
 <script lang="ts">
 import Vue from 'vue';
+const animationLongDelay = 1000;
 const animationDelay = 100;
 
 export default Vue.extend({
-  async mounted() {
+  mounted() {
     const plotElement: HTMLElement = this.$refs.plot;
 
     newPlot(plotElement);
 
-    const data = await getData();
-
     let index = 0;
-    const animatePlot = () => {
-      if (index >= data.length) return;
+    let data = undefined;
+    const animatePlot = async () => {
+      const newData = await getData();
+      // reload the data if we get interrupted in the middle
+      // of a plot.
+      if (data == null || data.length !== newData.length) {
+        data = newData;
+        if (index >= data.length) {
+          index = 0;
+          Plotly.purge(plotElement);
+          newPlot(plotElement);
+        }
+      }
+
+      if (index >= data.length) {
+        setTimeout(animatePlot, animationLongDelay);
+        return;
+      }
       addTrace(plotElement, data[index], index);
       ++index;
 
@@ -29,7 +44,6 @@ export default Vue.extend({
 });
 
 function addTrace(plotElement: HTMLElement, pop: Population, index: number) {
-  console.log(pop, index);
   Plotly.extendTraces(
     plotElement,
     {
@@ -48,9 +62,6 @@ function newPlot(plotElement: HTMLElement) {
 
   Plotly.newPlot(plotElement, traces, {
     title: 'The Selfish Meme',
-    xaxis: {
-      range: [0, 100]
-    },
     yaxis: {
       range: [0, 100]
     }
@@ -65,6 +76,7 @@ interface Population {
 async function getData(): Promise<Population[]> {
   const response = await fetch('output.json');
   const body = await response.text();
+  if (body == null || !body.split('\n')[0].startsWith('{')) return [];
   return body
     .split('\n')
     .filter(jsonLine => jsonLine.length > 0)
