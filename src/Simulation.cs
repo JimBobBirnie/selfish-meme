@@ -22,9 +22,12 @@ namespace SelfishMeme
 
         public void Run()
         {
-            var nextPopulation = GetNextPopulation(currentPopulation);
-            nextPopulation.WriteOutput(outputStream);
-            currentPopulation = nextPopulation;
+            for (int i = 0; i < breedingSeasons; i++)
+            {
+                var nextPopulation = GetNextPopulation(currentPopulation);
+                nextPopulation.WriteOutput(outputStream);
+                currentPopulation = nextPopulation;
+            }
         }
 
         private IPopulation GetNextPopulation(IPopulation currentPopulation)

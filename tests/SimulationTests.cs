@@ -105,5 +105,25 @@ namespace SelfishMeme
             simulation.Run();
             breedingSeasonFactoryMock.Verify(factory => factory.Build(nextPopulationMock.Object), Times.Once());
         }
+
+        [Fact]
+        public void SimulationRunsTheCorrectNumberOfBreedingSeasons()
+        {
+            var initialPopulation = new Population(0, 0);
+            var breedingSeasonFactoryMock = new Mock<IBreedingSeasonFactory>();
+            var breedingSeasons = 10;
+            Mock<TextWriter> outputStreamMock = new Mock<TextWriter>();
+            var simulation = new Simulation(initialPopulation
+                                        , breedingSeasonFactoryMock.Object
+                                        , breedingSeasons
+                                        , outputStreamMock.Object);
+            var breedingSeasonMock = new Mock<IBreedingSeason>();
+            Mock<IPopulation> nextPopulationMock = new Mock<IPopulation>();
+            breedingSeasonFactoryMock.Setup(s => s.Build(initialPopulation)).Returns(breedingSeasonMock.Object);
+            breedingSeasonFactoryMock.Setup(s => s.Build(nextPopulationMock.Object)).Returns(breedingSeasonMock.Object);
+            breedingSeasonMock.Setup(bs => bs.GetNewPopulation()).Returns(nextPopulationMock.Object);
+            simulation.Run();
+            breedingSeasonFactoryMock.Verify(factory => factory.Build(It.IsAny<IPopulation>()), Times.Exactly(breedingSeasons));
+        }
     }
 }
