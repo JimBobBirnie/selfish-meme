@@ -11,5 +11,9 @@ namespace SelfishMeme
         public void WriteLine(object o)
         {
         }
+
+        public void WriteLine(string format, object arg0, object arg1)
+        {
+        }
     }
 }

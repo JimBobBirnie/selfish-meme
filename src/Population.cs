@@ -46,17 +46,17 @@ namespace SelfishMeme
             return birds[index];
         }
 
-        public void PrintState()
-        {
+        // public void PrintState()
+        // {
 
-            Console.WriteLine("Total Birds in population: {0}", birds.Count);
-            foreach (Bird bird in this.birds.OrderByDescending(b => b.LifePoints))
-            {
-                Console.WriteLine(bird.ToString());
-            }
-            Console.WriteLine("Breeding hawks: {0}", getBreedingHawks());
-            Console.WriteLine("Breeding doves: {0}", getBreedingDoves());
-        }
+        //     Console.WriteLine("Total Birds in population: {0}", birds.Count);
+        //     foreach (Bird bird in this.birds.OrderByDescending(b => b.LifePoints))
+        //     {
+        //         Console.WriteLine(bird.ToString());
+        //     }
+        //     Console.WriteLine("Breeding hawks: {0}", getBreedingHawks());
+        //     Console.WriteLine("Breeding doves: {0}", getBreedingDoves());
+        // }
 
         public int getBreedingDoves()
         {

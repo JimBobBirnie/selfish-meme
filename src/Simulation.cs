@@ -24,8 +24,8 @@ namespace SelfishMeme
         {
             for (int i = 0; i < breedingSeasons; i++)
             {
+                currentPopulation.WriteOutput(outputStream);
                 var nextPopulation = GetNextPopulation(currentPopulation);
-                nextPopulation.WriteOutput(outputStream);
                 currentPopulation = nextPopulation;
             }
         }

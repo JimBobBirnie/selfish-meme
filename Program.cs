@@ -9,7 +9,7 @@ namespace SelfishMeme
         private const int timeWastingPenalty = 10;
         private const int losingPenalty = 100;
         private const int startHawks = 100;
-        private const int startDoves = 15;
+        private const int startDoves = 100;
         private const int confrontationsPerSeason = 1000;
         private const int breedingSeasons = 100;
         private const string defaultOutputFilePath = @"ui/dist/output.json";

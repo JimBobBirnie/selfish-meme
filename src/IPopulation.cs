@@ -10,7 +10,7 @@ namespace SelfishMeme
         int getDoves();
         int getHawks();
         int getSize();
-        void PrintState();
+       // void PrintState();
         void WriteOutput(TextWriter outputStream);
     }
 }
